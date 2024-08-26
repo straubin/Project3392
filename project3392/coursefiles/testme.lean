@@ -15,4 +15,8 @@ exact hc /-it's trivial if we assume he took the car!-/
 
 /-if he took the bus, we need a contradiction-/
 have hr: rain := And.left h₃
-have hbr: bus ∧ rain
+have hbr: bus ∧ rain := And.intro hb hr
+have hu: umbrella := h₂ hbr
+have hnu: ¬ umbrella := And.right h₃
+exfalso
+exact hnu hu
